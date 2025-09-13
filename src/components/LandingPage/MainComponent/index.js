@@ -1,13 +1,16 @@
 import React from "react";
 import Button from "../../Common/Button";
 import "./styles.css";
-import gradient from "../../../assets/gradient.png";
-import iphone from "../../../assets/iphone.png";
+import darkCupermanLogo from "../../../assets/dark cuperman.png";
+import lightCupermanLogo from "../../../assets/light cuperman.png";
 import { motion } from "framer-motion";
 import { RWebShare } from "react-web-share";
 import { toast } from "react-toastify";
+import { useThemeContext } from "../../../context/ThemeContext";
 
 function MainComponent() {
+  const { theme } = useThemeContext();
+
   return (
     <div className="main-flex">
       <div className="info-landing">
@@ -47,7 +50,7 @@ function MainComponent() {
           </a>
           <RWebShare
             data={{
-              text: "CryptoDashboard made by Avi Vashishta using React JS.",
+              text: "CryptoDashboard made by ChadGPT using React JS.",
               url: "https://crypto-dashboard-jan.netlify.app",
               title: "Crypton.",
             }}
@@ -58,10 +61,9 @@ function MainComponent() {
         </motion.div>
       </div>
       <div className="gradient-div">
-        <img src={gradient} className="gradient" />
         <motion.img
-          src={iphone}
-          className="iphone"
+          src={theme === "dark" ? lightCupermanLogo : darkCupermanLogo}
+          className="dashboard-logo"
           initial={{ y: -10 }}
           animate={{ y: 10 }}
           transition={{

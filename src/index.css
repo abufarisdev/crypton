@@ -28,6 +28,14 @@
   --darkgrey: #f3f3f3;
 }
 
+[data-theme="light"] body {
+  background-image: url('./clear-blue-sky-illustration-blue-sky-no-cloud-background-design-for-background-poster-kid-art-cartoon-vector.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 html {
   scroll-behavior: smooth;
 }

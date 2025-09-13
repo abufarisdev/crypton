@@ -5,6 +5,10 @@
   padding: 1rem 3rem;
 }
 
+.info-landing {
+  margin-top: 2rem;
+}
+
 .heading1,
 .heading2 {
   font-size: 6rem;
@@ -45,10 +49,12 @@
   top: 80px;
   width: 250px;
 }
-.iphone {
+.dashboard-logo {
   position: absolute;
-  right: 10px;
-  width: 300px;
+  left: 35%;
+  width: 465px;
+  top: -70px;
+  transform: translate(-50%, -76%) scaleX(1);
 }
 
 @media only screen and (max-width: 1350px) {

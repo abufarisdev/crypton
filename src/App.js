@@ -1,4 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material";
+import { ThemeProvider as AppThemeProvider } from "./context/ThemeContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Coin from "./pages/Coin";
@@ -23,7 +24,8 @@ function App() {
   return (
     <div className="App">
       <ToastContainer />
-      <ThemeProvider theme={theme}>
+      <AppThemeProvider>
+        <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -34,7 +36,8 @@ function App() {
             <Route path="/news" element={<News/>} />
           </Routes>
         </BrowserRouter>
-      </ThemeProvider>
+        </ThemeProvider>
+      </AppThemeProvider>
     </div>
   );
 }
