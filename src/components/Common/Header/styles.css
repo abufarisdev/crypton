@@ -2,12 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem 1.5rem 3rem;
+  padding: 1rem 3rem 1rem 3rem;
   margin-bottom: 1em;
   position: sticky;
   top: 0;
   background-color: var(--black);
-  border-bottom: 0.5px solid #ea2811;
+  border-bottom: 0.5px solid #f18500;
   z-index: 1000;
 }
 
@@ -30,11 +30,13 @@
   font-weight: 600;
   cursor: pointer;
   padding: 0.3rem 0.5rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
 }
 
 .link:hover {
   color: var(--white);
-  transform: all 0.3s;
+  border-bottom: 2px solid #f18500;
 }
 
 .drawer-component {

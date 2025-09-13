@@ -27,7 +27,7 @@ function Header() {
         <Link to="/compare" className="link">Compare</Link>
         <Link to="/watchlist" className="link">Watchlist</Link>
         <Link to="/dashboard">
-          <Button text="Dashboard" />
+          <Button text="Dashboard" dashboard={true} />
         </Link>
         <Link to="/news" className="link">News</Link>
       </div>
