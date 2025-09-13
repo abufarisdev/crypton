@@ -1,5 +1,9 @@
+@import "tailwindcss";
+
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700&display=swap");
 
+/* Your custom variables */
 :root {
   --white: #fff;
   --black: #111;
@@ -34,18 +38,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--black);
-
   overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span {
+h1, h2, h3, h4, h5, h6, p, span {
   color: var(--white);
 }
 
@@ -78,5 +74,3 @@ a {
   text-decoration: none;
   color: var(--white) !important;
 }
-
-

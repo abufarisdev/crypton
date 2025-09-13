@@ -4,10 +4,10 @@ import Header from "../components/Common/Header";
 import Loader from "../components/Common/Loader";
 import Search from "../components/Dashboard/Search";
 import TabsComponent from "../components/Dashboard/Tabs";
-
 import PaginationComponent from "../components/Dashboard/Pagination";
 import TopButton from "../components/Common/TopButton";
 import Footer from "../components/Common/Footer/footer";
+import News from "./News"; // Import News component
 
 function Dashboard() {
   const [coins, setCoins] = useState([]);
@@ -15,9 +15,9 @@ function Dashboard() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
+  const [activeSection, setActiveSection] = useState("Coins"); // Coins or News
 
   useEffect(() => {
-    // Get 100 Coins
     getData();
   }, []);
 
@@ -28,31 +28,21 @@ function Dashboard() {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       )
       .then((response) => {
-        console.log("RESPONSE>>>", response.data);
         setCoins(response.data);
         setPaginatedCoins(response.data.slice(0, 10));
         setLoading(false);
       })
       .catch((error) => {
         console.log("ERROR>>>", error.message);
+        setLoading(false);
       });
   };
 
   const handleChange = (e) => {
     setSearch(e.target.value);
-    console.log(e.target.value);
   };
 
-  // var filteredCoins = coins.filter((coin) => {
-  //   if (
-  //     coin.name.toLowerCase().includes(search.trim().toLowerCase()) ||
-  //     coin.symbol.toLowerCase().includes(search.trim().toLowerCase())
-  //   ) {
-  //     return coin;
-  //   }
-  // });
-
-  var filteredCoins = coins.filter(
+  const filteredCoins = coins.filter(
     (coin) =>
       coin.name.toLowerCase().includes(search.trim().toLowerCase()) ||
       coin.symbol.toLowerCase().includes(search.trim().toLowerCase())
@@ -60,31 +50,69 @@ function Dashboard() {
 
   const handlePageChange = (event, value) => {
     setPage(value);
-    // Value = new page number
-    var initialCount = (value - 1) * 10;
+    const initialCount = (value - 1) * 10;
     setPaginatedCoins(coins.slice(initialCount, initialCount + 10));
   };
 
   return (
     <>
       <Header />
+
       {loading ? (
         <Loader />
       ) : (
         <>
-          <Search search={search} handleChange={handleChange} />
-          <TabsComponent
-            coins={search ? filteredCoins : paginatedCoins}
-            setSearch={setSearch}
-          />
-          {!search && (
-            <PaginationComponent
-              page={page}
-              handlePageChange={handlePageChange}
-            />
+          {/* Toggle Buttons */}
+          <div style={{ display: "flex", gap: "12px", margin: "16px 0" }}>
+            <button
+              onClick={() => setActiveSection("Coins")}
+              style={{
+                padding: "8px 12px",
+                borderRadius: "8px",
+                backgroundColor: activeSection === "Coins" ? "#3a80e9" : "#1f1f2e",
+                color: "#fff",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              Coins
+            </button>
+
+            <button
+              onClick={() => setActiveSection("News")}
+              style={{
+                padding: "8px 12px",
+                borderRadius: "8px",
+                backgroundColor: activeSection === "News" ? "#3a80e9" : "#1f1f2e",
+                color: "#fff",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              News
+            </button>
+          </div>
+
+          {/* Search Bar */}
+          {activeSection === "Coins" && <Search search={search} handleChange={handleChange} />}
+
+          {/* Content */}
+          {activeSection === "Coins" ? (
+            <>
+              <TabsComponent
+                coins={search ? filteredCoins : paginatedCoins}
+                setSearch={setSearch}
+              />
+              {!search && (
+                <PaginationComponent page={page} handlePageChange={handlePageChange} />
+              )}
+            </>
+          ) : (
+            <News />
           )}
         </>
       )}
+
       <TopButton />
       <Footer />
     </>
@@ -92,15 +120,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-
-// coins == 100 coins
-
-// PaginatedCoins -> Page 1 - coins.slice(0,10)
-// PaginatedCoins -> Page 2 = coins.slice(10,20)
-// PaginatedCoins -> Page 3 = coins.slice(20,30)
-// .
-// .
-// PaginatedCoins -> Page 10 = coins.slice(90,100)
-
-// PaginatedCoins -> Page X , then initial Count = (X-1)*10
-// coins.slice(initialCount,initialCount+10)

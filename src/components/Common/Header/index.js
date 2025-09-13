@@ -4,26 +4,22 @@ import TemporaryDrawer from "./drawer";
 import "./styles.css";
 import Switch from "@mui/material/Switch";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") == "dark" ? true : false
+    localStorage.getItem("theme") === "dark"
   );
 
   useEffect(() => {
-    if (localStorage.getItem("theme") == "dark") {
-      setDark();
-    } else {
-      setLight();
-    }
+    if (localStorage.getItem("theme") === "dark") setDark();
+    else setLight();
   }, []);
 
   const changeMode = () => {
-    if (localStorage.getItem("theme") != "dark") {
-      setDark();
-    } else {
-      setLight();
-    }
+    if (localStorage.getItem("theme") !== "dark") setDark();
+    else setLight();
+
     setDarkMode(!darkMode);
     toast.success("Theme Changed!");
   };
@@ -43,21 +39,18 @@ function Header() {
       <h1>
         Crypton<span style={{ color: "var(--blue)" }}>.</span>
       </h1>
+
       <div className="links">
-        <Switch checked={darkMode} onClick={() => changeMode()} />
-        <a href="/">
-          <p className="link">Home</p>
-        </a>
-        <a href="/compare">
-          <p className="link">Compare</p>
-        </a>
-        <a href="/watchlist">
-          <p className="link">Watchlist</p>
-        </a>
-        <a href="/dashboard">
-          <Button text={"dashboard"} />
-        </a>
+        <Switch checked={darkMode} onClick={changeMode} />
+        <Link to="/" className="link">Home</Link>
+        <Link to="/compare" className="link">Compare</Link>
+        <Link to="/watchlist" className="link">Watchlist</Link>
+        <Link to="/dashboard">
+          <Button text="Dashboard" />
+        </Link>
+        <Link to="/news" className="link">News</Link>
       </div>
+
       <div className="drawer-component">
         <TemporaryDrawer />
       </div>

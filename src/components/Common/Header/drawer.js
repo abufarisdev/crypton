@@ -4,27 +4,23 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { IconButton } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") == "dark" ? true : false
+    localStorage.getItem("theme") === "dark"
   );
 
   useEffect(() => {
-    if (localStorage.getItem("theme") == "dark") {
-      setDark();
-    } else {
-      setLight();
-    }
+    if (localStorage.getItem("theme") === "dark") setDark();
+    else setLight();
   }, []);
 
   const changeMode = () => {
-    if (localStorage.getItem("theme") != "dark") {
-      setDark();
-    } else {
-      setLight();
-    }
+    if (localStorage.getItem("theme") !== "dark") setDark();
+    else setLight();
+
     setDarkMode(!darkMode);
     toast.success("Theme Changed!");
   };
@@ -38,6 +34,7 @@ export default function TemporaryDrawer() {
     localStorage.setItem("theme", "light");
     document.documentElement.setAttribute("data-theme", "light");
   };
+
   return (
     <div>
       <IconButton onClick={() => setOpen(true)}>
@@ -45,19 +42,13 @@ export default function TemporaryDrawer() {
       </IconButton>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <div className="drawer-div">
-          <a href="/">
-            <p className="link">Home</p>
-          </a>
-          <a href="/compare">
-            <p className="link">Compare</p>
-          </a>
-          <a href="/watchlist">
-            <p className="link">Watchlist</p>
-          </a>
-          <a href="/dashboard">
-            <p className="link">Dashboard</p>
-          </a>
-          <Switch checked={darkMode} onClick={() => changeMode()} />
+          <Link to="/" className="link" onClick={() => setOpen(false)}>Home</Link>
+          <Link to="/compare" className="link" onClick={() => setOpen(false)}>Compare</Link>
+          <Link to="/watchlist" className="link" onClick={() => setOpen(false)}>Watchlist</Link>
+          <Link to="/dashboard" className="link" onClick={() => setOpen(false)}>Dashboard</Link>
+          <Link to="/news" className="link" onClick={() => setOpen(false)}>News</Link>
+
+          <Switch checked={darkMode} onClick={changeMode} />
         </div>
       </Drawer>
     </div>
