@@ -1,0 +1,6 @@
+<!-- Medium soft cloud -->
+<svg width="180" height="96" viewBox="0 0 180 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="45" cy="60" rx="36" ry="24" fill="white" opacity="0.6"/>
+  <ellipse cx="90" cy="48" rx="45" ry="36" fill="white" opacity="0.8"/>
+  <ellipse cx="135" cy="60" rx="30" ry="21" fill="white" opacity="0.5"/>
+</svg>

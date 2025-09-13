@@ -26,6 +26,12 @@
   color: white;
 }
 
+/* Light mode specific background color for dashboard button */
+[data-theme="light"] .btn-dashboard {
+  background-color: #f8b701;
+  border: 2px solid #f8b701;
+}
+
 .btn:hover {
   box-shadow: 2px 2px 10px rgba(58, 128, 233, 0.5);
   transition: all 0.5s ease-in-out;
@@ -50,9 +56,22 @@
   color: var(--white);
 }
 
+/* Light mode specific border color for share app button */
+[data-theme="light"] .btn-outlined {
+  border: 2px solid #e32310;
+  color: #ef3217;
+}
+
 .btn-outlined:hover {
   background-color: #ad0500;
   transition: all 0.3s;
+}
+
+/* Light mode specific hover background for share app button */
+[data-theme="light"] .btn-outlined:hover {
+  background-color: #5c8cec;
+  color: whitesmoke;
+  border: 2px solid #5c8cec;
 }
 
 @media only screen and (max-width: 800px) {

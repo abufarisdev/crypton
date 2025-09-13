@@ -17,7 +17,13 @@
 .heading1 {
   font-size: 6rem;
   margin-bottom: -0.5em; 
-  font-weight: 500;
+  font-weight: 600;
+}
+
+/* Light mode specific color for "Track Crypto" heading */
+[data-theme="light"] .heading1 {
+  color: #fccf00;
+  text-shadow: 1px 1px 0px black, 0 0 8px #fccf00;
 }
 
 .heading2 {
@@ -33,10 +39,21 @@
   transition: all 0.3s;
 }
 
+/* Light mode specific hover effect for "Track Crypto" heading */
+[data-theme="light"] .heading1:hover {
+  -webkit-text-stroke-color: #ff0000;
+}
+
 .heading2 {
   color: #ff0000;
   text-shadow: 0 0 5px #bf0000;;
   font-weight: 800;
+}
+
+/* Light mode specific color for "Real Time" heading */
+[data-theme="light"] .heading2 {
+  color: #5c8cec;
+  text-shadow: 1px 0px 0px black, 0 0 8px #5c8cec;
 }
 
 .info-text {
@@ -44,6 +61,11 @@
   text-shadow: 1px 0 5px grey;
   font-weight: 300;
   
+}
+
+/* Light mode specific color for info text */
+[data-theme="light"] .info-text {
+  color: black;
 }
 
 .btn-flex {
