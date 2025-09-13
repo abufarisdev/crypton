@@ -24,6 +24,14 @@ function App() {
   return (
     <div className="App">
       <ToastContainer />
+      
+      {/* Blinking Stars Overlay - Dark Mode Only */}
+      <div className="stars-container">
+        {Array.from({ length: 30 }, (_, i) => (
+          <div key={i} className="star"></div>
+        ))}
+      </div>
+      
       <AppThemeProvider>
         <ThemeProvider theme={theme}>
         <BrowserRouter>

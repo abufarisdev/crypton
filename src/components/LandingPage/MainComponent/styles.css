@@ -11,24 +11,39 @@
 
 .heading1,
 .heading2 {
-  font-size: 6rem;
   margin: 0;
+}
+
+.heading1 {
+  font-size: 6rem;
+  margin-bottom: -0.5em; 
+  font-weight: 500;
+}
+
+.heading2 {
+  font-size: 5.8rem;
+  margin-left: 0.1em;
+  margin-bottom: 0.1em;
 }
 
 .heading1:hover {
   -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: var(--white);
+  -webkit-text-stroke-color: #f18400;
   color: var(--black);
   transition: all 0.3s;
 }
 
 .heading2 {
-  color: var(--blue);
+  color: #ff0000;
+  text-shadow: 0 0 5px #bf0000;;
+  font-weight: 800;
 }
 
 .info-text {
-  color: var(--grey);
+  color: whitesmoke;
+  text-shadow: 1px 0 5px grey;
   font-weight: 300;
+  
 }
 
 .btn-flex {
@@ -52,9 +67,14 @@
 .dashboard-logo {
   position: absolute;
   left: 35%;
-  width: 465px;
-  top: -70px;
+  width: 445px;
+  top: -80px;
   transform: translate(-50%, -76%) scaleX(1);
+}
+
+/* Glow effect for dark mode only */
+[data-theme="dark"] .dashboard-logo {
+  filter: drop-shadow(0 0 9px rgba(255, 0, 0, 0.5));
 }
 
 @media only screen and (max-width: 1350px) {
@@ -109,7 +129,7 @@
 
   .gradient-div {
     margin-top: 3rem;
-    margin-right: auto;
+      margin-bottom: 0.5rem; /* Reduce space below info-landing */
   }
 }
 @media only screen and (max-width: 800px) {
