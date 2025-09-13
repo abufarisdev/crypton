@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 3rem 1.5rem 3rem;
+  margin-bottom: 1em;
   position: sticky;
   top: 0;
   background-color: var(--black);
+  border-bottom: 0.5px solid #ea2811;
   z-index: 1000;
 }
 

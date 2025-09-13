@@ -1,8 +1,7 @@
 import React from "react";
 import Button from "../../Common/Button";
 import "./styles.css";
-import gradient from "../../../assets/gradient.png";
-import iphone from "../../../assets/iphone.png";
+import darkCupermanLogo from "../../../assets/dark cuperman.png";
 import { motion } from "framer-motion";
 import { RWebShare } from "react-web-share";
 import { toast } from "react-toastify";
@@ -58,10 +57,9 @@ function MainComponent() {
         </motion.div>
       </div>
       <div className="gradient-div">
-        <img src={gradient} className="gradient" />
         <motion.img
-          src={iphone}
-          className="iphone"
+          src={darkCupermanLogo}
+          className="dashboard-logo"
           initial={{ y: -10 }}
           animate={{ y: 10 }}
           transition={{
