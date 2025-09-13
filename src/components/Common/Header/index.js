@@ -26,10 +26,10 @@ function Header() {
         <Link to="/" className="link">Home</Link>
         <Link to="/compare" className="link">Compare</Link>
         <Link to="/watchlist" className="link">Watchlist</Link>
+        <Link to="/news" className="link">News</Link>
         <Link to="/dashboard">
           <Button text="Dashboard" />
         </Link>
-        <Link to="/news" className="link">News</Link>
       </div>
 
       <div className="drawer-component">

@@ -4,6 +4,7 @@ import solanaImg from "../assets/solana.jpeg";
 import secchairImg from "../assets/secchair.jpeg";
 import cardanoImg from "../assets/cardamo.jpeg";
 import { wrap } from 'framer-motion';
+import Header from '../components/Common/Header';
 
 // Mock data
 const newsData = [
@@ -190,6 +191,7 @@ const News = () => {
 
   return (
     <div style={containerStyle}>
+      <Header/>
       <header style={headerStyle}>
         <h1 style={titleStyle}>Crypto <span style={highlightStyle}>News</span> Dashboard</h1>
         <p style={paragraphStyle}>Stay updated with the latest cryptocurrency news</p>
