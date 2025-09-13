@@ -12,7 +12,7 @@
 }
 
 .header h1 {
-  font-size: 1.2rem;
+  font-size: 2.7rem;
   margin: 0rem;
   font-weight: 600;
 }
@@ -21,14 +21,15 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .link {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   color: var(--grey);
   font-weight: 600;
   cursor: pointer;
+  padding: 0.3rem 0.5rem;
 }
 
 .link:hover {
