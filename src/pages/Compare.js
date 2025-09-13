@@ -35,69 +35,120 @@ function Compare() {
 
   const getData = async () => {
     setLoading(true);
-    const coins = await get100Coins();
-    if (coins) {
-      setAllCoins(coins);
-      const data1 = await getCoinData(crypto1);
-      const data2 = await getCoinData(crypto2);
-      settingCoinObject(data1, setCoin1Data);
-      settingCoinObject(data2, setCoin2Data);
-      if (data1 && data2) {
-        // getPrices
-        const prices1 = await getPrices(crypto1, days, priceType);
-        const prices2 = await getPrices(crypto2, days, priceType);
-        settingChartData(setChartData, prices1, prices2);
-        setLoading(false);
+    try {
+      const coins = await get100Coins();
+      if (coins) {
+        setAllCoins(coins);
+
+        const [data1, data2] = await Promise.all([
+          getCoinData(crypto1),
+          getCoinData(crypto2),
+        ]);
+
+        settingCoinObject(data1, setCoin1Data);
+        settingCoinObject(data2, setCoin2Data);
+
+        if (data1 && data2) {
+          const [prices1, prices2] = await Promise.all([
+            getPrices(crypto1, days, priceType),
+            getPrices(crypto2, days, priceType),
+          ]);
+
+          if (prices1 && prices2) {
+            settingChartData(setChartData, prices1, prices2);
+          }
+        }
       }
+    } catch (err) {
+      console.error("Error in getData:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
   const onCoinChange = async (e, isCoin2) => {
+    const selectedCoin = e.target.value;
     setLoading(true);
-    if (isCoin2) {
-      const newCrypto2 = e.target.value;
-      // crypto2 is being changed
-      setCrypto2(newCrypto2);
-      // fetch coin2 data
-      const data2 = await getCoinData(newCrypto2);
-      settingCoinObject(data2, setCoin2Data);
-      // fetch prices again
-      const prices1 = await getPrices(crypto1, days, priceType);
-      const prices2 = await getPrices(newCrypto2, days, priceType);
-      settingChartData(setChartData, prices1, prices2);
-    } else {
-      const newCrypto1 = e.target.value;
-      // crypto1 is being changed
-      setCrypto1(newCrypto1);
-      // fetch coin1 data
-      const data1 = await getCoinData(newCrypto1);
-      settingCoinObject(data1, setCoin1Data);
-      // fetch coin prices
-      const prices1 = await getPrices(newCrypto1, days, priceType);
-      const prices2 = await getPrices(crypto2, days, priceType);
-      settingChartData(setChartData, prices1, prices2);
+
+    try {
+      if (isCoin2) {
+        setCrypto2(selectedCoin);
+
+        const data2 = await getCoinData(selectedCoin);
+        settingCoinObject(data2, setCoin2Data);
+
+        const [prices1, prices2] = await Promise.all([
+          getPrices(crypto1, days, priceType),
+          getPrices(selectedCoin, days, priceType),
+        ]);
+
+        if (prices1 && prices2) {
+          settingChartData(setChartData, prices1, prices2);
+        }
+      } else {
+        setCrypto1(selectedCoin);
+
+        const data1 = await getCoinData(selectedCoin);
+        settingCoinObject(data1, setCoin1Data);
+
+        const [prices1, prices2] = await Promise.all([
+          getPrices(selectedCoin, days, priceType),
+          getPrices(crypto2, days, priceType),
+        ]);
+
+        if (prices1 && prices2) {
+          settingChartData(setChartData, prices1, prices2);
+        }
+      }
+    } catch (err) {
+      console.error("Error while changing coin:", err);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const handleDaysChange = async (e) => {
     const newDays = e.target.value;
     setLoading(true);
-    setDays(newDays);
-    const prices1 = await getPrices(crypto1, newDays, priceType);
-    const prices2 = await getPrices(crypto2, newDays, priceType);
-    settingChartData(setChartData, prices1, prices2);
-    setLoading(false);
+
+    try {
+      setDays(newDays);
+
+      const [prices1, prices2] = await Promise.all([
+        getPrices(crypto1, newDays, priceType),
+        getPrices(crypto2, newDays, priceType),
+      ]);
+
+      if (prices1 && prices2) {
+        settingChartData(setChartData, prices1, prices2);
+      }
+    } catch (err) {
+      console.error("Error while changing days:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handlePriceTypeChange = async (e) => {
     const newPriceType = e.target.value;
     setLoading(true);
-    setPriceType(newPriceType);
-    const prices1 = await getPrices(crypto1, days, newPriceType);
-    const prices2 = await getPrices(crypto2, days, newPriceType);
-    settingChartData(setChartData, prices1, prices2);
-    setLoading(false);
+
+    try {
+      setPriceType(newPriceType);
+
+      const [prices1, prices2] = await Promise.all([
+        getPrices(crypto1, days, newPriceType),
+        getPrices(crypto2, days, newPriceType),
+      ]);
+
+      if (prices1 && prices2) {
+        settingChartData(setChartData, prices1, prices2);
+      }
+    } catch (err) {
+      console.error("Error while changing price type:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
