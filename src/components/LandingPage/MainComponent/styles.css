@@ -51,9 +51,9 @@
 }
 .dashboard-logo {
   position: absolute;
-  left: 50%;
-  width: 350px;
-  top: 16%;
+  left: 35%;
+  width: 465px;
+  top: -70px;
   transform: translate(-50%, -76%) scaleX(1);
 }
 
