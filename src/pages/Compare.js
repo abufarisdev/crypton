@@ -15,13 +15,10 @@ import { settingCoinObject } from "../functions/settingCoinObject";
 function Compare() {
   const [allCoins, setAllCoins] = useState([]);
   const [loading, setLoading] = useState(false);
-  // id states
   const [crypto1, setCrypto1] = useState("bitcoin");
   const [crypto2, setCrypto2] = useState("ethereum");
-  // data states
   const [coin1Data, setCoin1Data] = useState({});
   const [coin2Data, setCoin2Data] = useState({});
-  // days state
   const [days, setDays] = useState(30);
   const [priceType, setPriceType] = useState("prices");
   const [chartData, setChartData] = useState({
@@ -151,6 +148,10 @@ function Compare() {
     }
   };
 
+  // derive selected coins from allCoins for instant display
+  const selectedCoin1 = allCoins.find((c) => c.id === crypto1);
+  const selectedCoin2 = allCoins.find((c) => c.id === crypto2);
+
   return (
     <div>
       <Header />
@@ -166,12 +167,15 @@ function Compare() {
             days={days}
             handleDaysChange={handleDaysChange}
           />
+
+          {/* List sections with logos */}
           <div className="grey-wrapper">
-            <List coin={coin1Data} />
+            <List coin={selectedCoin1 || coin1Data} />
           </div>
           <div className="grey-wrapper">
-            <List coin={coin2Data} />
+            <List coin={selectedCoin2 || coin2Data} />
           </div>
+
           <div className="grey-wrapper">
             <ToggleComponents
               priceType={priceType}
@@ -179,8 +183,16 @@ function Compare() {
             />
             <LineChart chartData={chartData} multiAxis={true} />
           </div>
-          <Info title={coin1Data.name} desc={coin1Data.desc} />
-          <Info title={coin2Data.name} desc={coin2Data.desc} />
+
+          {/* Info sections */}
+          <Info
+            title={selectedCoin1?.name || coin1Data.name}
+            desc={coin1Data.desc}
+          />
+          <Info
+            title={selectedCoin2?.name || coin2Data.name}
+            desc={coin2Data.desc}
+          />
         </>
       )}
     </div>
