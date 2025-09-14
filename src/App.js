@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 import Watchlist from "./pages/Watchlist";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import News from "./pages/News";
 import FloatingClouds from "./components/Common/FloatingClouds";
 
 function App() {
@@ -55,7 +54,6 @@ function AppContent({ theme }) {
             <Route path="/coin/:id" element={<Coin />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/watchlist" element={<Watchlist />} />
-            <Route path="/news" element={<News/>} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

@@ -46,7 +46,6 @@ export default function TemporaryDrawer() {
           <Link to="/compare" className="link" onClick={() => setOpen(false)}>Compare</Link>
           <Link to="/watchlist" className="link" onClick={() => setOpen(false)}>Watchlist</Link>
           <Link to="/dashboard" className="link" onClick={() => setOpen(false)}>Dashboard</Link>
-          <Link to="/news" className="link" onClick={() => setOpen(false)}>News</Link>
 
           <Switch checked={darkMode} onClick={changeMode} />
         </div>

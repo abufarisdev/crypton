@@ -7,7 +7,6 @@ import TabsComponent from "../components/Dashboard/Tabs";
 import PaginationComponent from "../components/Dashboard/Pagination";
 import TopButton from "../components/Common/TopButton";
 import Footer from "../components/Common/Footer/footer";
-import News from "./News"; // Import News component
 
 function Dashboard() {
   const [coins, setCoins] = useState([]);
@@ -15,7 +14,7 @@ function Dashboard() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
-  const [activeSection, setActiveSection] = useState("Coins"); // Coins or News
+  const [activeSection, setActiveSection] = useState("Coins");
 
   useEffect(() => {
     getData();
@@ -62,53 +61,17 @@ function Dashboard() {
         <Loader />
       ) : (
         <>
-          {/* Toggle Buttons */}
-          <div style={{ display: "flex", gap: "12px", margin: "16px 0" }}>
-            <button
-              onClick={() => setActiveSection("Coins")}
-              style={{
-                padding: "8px 12px",
-                borderRadius: "8px",
-                backgroundColor: activeSection === "Coins" ? "#3a80e9" : "#1f1f2e",
-                color: "#fff",
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              Coins
-            </button>
-
-            <button
-              onClick={() => setActiveSection("News")}
-              style={{
-                padding: "8px 12px",
-                borderRadius: "8px",
-                backgroundColor: activeSection === "News" ? "#3a80e9" : "#1f1f2e",
-                color: "#fff",
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              News
-            </button>
-          </div>
 
           {/* Search Bar */}
-          {activeSection === "Coins" && <Search search={search} handleChange={handleChange} />}
+          <Search search={search} handleChange={handleChange} />
 
           {/* Content */}
-          {activeSection === "Coins" ? (
-            <>
-              <TabsComponent
-                coins={search ? filteredCoins : paginatedCoins}
-                setSearch={setSearch}
-              />
-              {!search && (
-                <PaginationComponent page={page} handlePageChange={handlePageChange} />
-              )}
-            </>
-          ) : (
-            <News />
+          <TabsComponent
+            coins={search ? filteredCoins : paginatedCoins}
+            setSearch={setSearch}
+          />
+          {!search && (
+            <PaginationComponent page={page} handlePageChange={handlePageChange} />
           )}
         </>
       )}
