@@ -7,25 +7,16 @@
   position: sticky;
   top: 0;
   background-color: var(--black);
-  border-bottom: 0.5px solid #f18500;
+  border-bottom: 2px solid var(--grey);
   z-index: 1000;
-}
-
-/* Light mode specific background color for header */
-[data-theme="light"] .header {
-  background-color: #33A1E0;
-  border-bottom: 2px solid #f8b701;
+  transition: all 0.3s ease;
 }
 
 .header h1 {
   font-size: 2.7rem;
   margin: 0rem;
   font-weight: 600;
-}
-
-/* Light mode specific color for Crypton logo text */
-[data-theme="light"] .header h1 {
-  color: #e22612;
+  color: var(--white);
 }
 
 .links {
@@ -45,20 +36,9 @@
   transition: all 0.3s;
 }
 
-/* Light mode specific color for navbar links */
-[data-theme="light"] .link {
-  color: whitesmoke !important;
-}
-
 .link:hover {
   color: var(--white);
-  border-bottom: 2px solid #f18500;
-}
-
-/* Light mode specific hover color for navbar links */
-[data-theme="light"] .link:hover {
-  color: whitesmoke !important;
-  border-bottom: 2px solid #e22612;
+  border-bottom: 2px solid var(--blue);
 }
 
 .drawer-component {
@@ -83,5 +63,6 @@
     background-color: var(--black);
     height: 100vh;
     padding: 0.5rem 1.5rem;
+    border-left: 2px solid var(--grey);
   }
 }

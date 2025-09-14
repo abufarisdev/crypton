@@ -70,6 +70,7 @@ function Header() {
         <Link to="/" className="link">Home</Link>
         <Link to="/compare" className="link">Compare</Link>
         <Link to="/watchlist" className="link">Watchlist</Link>
+        <Link to="/price-alerts" className="link">Price Alerts</Link>
         <Link to="/dashboard">
           <Button text="Dashboard" dashboard={true} />
         </Link>

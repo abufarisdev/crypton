@@ -7,6 +7,7 @@ import Compare from "./pages/Compare";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Watchlist from "./pages/Watchlist";
+import PriceAlerts from "./pages/PriceAlerts";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import FloatingClouds from "./components/Common/FloatingClouds";
@@ -31,7 +32,7 @@ function AppContent({ theme }) {
   const { theme: currentTheme } = useThemeContext();
 
   return (
-    <div className="App">
+    <div className="App" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <ToastContainer />
       
       {/* Blinking Stars Overlay - Dark Mode Only */}
@@ -47,6 +48,7 @@ function AppContent({ theme }) {
       {currentTheme === "light" && <FloatingClouds />}
       
       <ThemeProvider theme={theme}>
+        <div style={{ flex: 1 }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -54,8 +56,10 @@ function AppContent({ theme }) {
             <Route path="/coin/:id" element={<Coin />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/watchlist" element={<Watchlist />} />
+            <Route path="/price-alerts" element={<PriceAlerts />} />
           </Routes>
         </BrowserRouter>
+        </div>
       </ThemeProvider>
     </div>
   );

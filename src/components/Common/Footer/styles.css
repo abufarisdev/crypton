@@ -1,53 +1,44 @@
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem;
-  margin: 3rem;
-  height: auto;
-  border-radius: 0.75rem;
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(31, 83, 198, 1) 0%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  padding: 1.5rem;
+  margin-top: auto;
+  background: var(--darkgrey);
+  border-top: 2px solid var(--darkgrey);
+  transition: all 0.3s ease;
 }
 
-.footer h2 {
-  cursor: pointer;
+.footer:hover {
+  border-color: var(--green);
+  transition: all 0.3s;
 }
+
 
 .social-links {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .social-link {
-  color: var(--white);
+  color: var(--grey);
   font-size: 2rem !important;
-  transition: all 0.2s ease-in-out !important;
+  transition: all 0.3s ease-in-out !important;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-link:hover {
-  transform: scale(1.2);
+  color: var(--white);
+  background: var(--black);
+  transform: scale(1.1);
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
 @media only screen and (max-width: 800px) {
   .footer {

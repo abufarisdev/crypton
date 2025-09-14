@@ -54,7 +54,7 @@ function Dashboard() {
   };
 
   return (
-    <>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header />
 
       {loading ? (
@@ -77,8 +77,10 @@ function Dashboard() {
       )}
 
       <TopButton />
-      <Footer />
-    </>
+      <div style={{ marginTop: 'auto' }}>
+        <Footer />
+      </div>
+    </div>
   );
 }
 

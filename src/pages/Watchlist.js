@@ -3,6 +3,7 @@ import Button from "../components/Common/Button";
 import Header from "../components/Common/Header";
 import TabsComponent from "../components/Dashboard/Tabs";
 import { get100Coins } from "../functions/get100Coins";
+import Footer from "../components/Common/Footer/footer";
 
 function Watchlist() {
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
@@ -44,6 +45,7 @@ function Watchlist() {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 }

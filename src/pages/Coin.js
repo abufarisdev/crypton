@@ -12,6 +12,7 @@ import { getCoinData } from "../functions/getCoinData";
 import { getPrices } from "../functions/getPrices";
 import { settingChartData } from "../functions/settingChartData";
 import { settingCoinObject } from "../functions/settingCoinObject";
+import Footer from "../components/Common/Footer/footer";
 
 function Coin() {
   const { id } = useParams();
@@ -100,6 +101,7 @@ function Coin() {
       ) : (
         <Loader />
       )}
+      <Footer />
     </>
   );
 }

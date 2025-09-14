@@ -11,6 +11,7 @@ import { getCoinData } from "../functions/getCoinData";
 import { getPrices } from "../functions/getPrices";
 import { settingChartData } from "../functions/settingChartData";
 import { settingCoinObject } from "../functions/settingCoinObject";
+import Footer from "../components/Common/Footer/footer";
 
 function Compare() {
   const [allCoins, setAllCoins] = useState([]);
@@ -153,7 +154,7 @@ function Compare() {
   const selectedCoin2 = allCoins.find((c) => c.id === crypto2);
 
   return (
-    <div>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header />
       {loading || !coin1Data?.id || !coin2Data?.id ? (
         <Loader />
@@ -195,6 +196,9 @@ function Compare() {
           />
         </>
       )}
+      <div style={{ marginTop: 'auto' }}>
+        <Footer />
+      </div>
     </div>
   );
 }

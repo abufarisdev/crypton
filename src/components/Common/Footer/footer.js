@@ -6,15 +6,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 function Footer() {
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
   return (
     <div className="footer">
-      <h2 className="logo" onClick={() => topFunction()}>
-        Crypton<span>.</span>
-      </h2>
       <div className="social-links">
         <a href="https://facebook.com">
           <FacebookIcon className="social-link" />
