@@ -113,7 +113,7 @@ function PriceAlerts() {
 
   const refreshPrices = () => {
     fetchCurrentPrices();
-    toast.success("Prices updated!");
+    toast.success();
   };
 
   const requestNotificationPermission = async () => {
