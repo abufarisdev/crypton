@@ -121,7 +121,7 @@ function PriceAlerts() {
       const permission = await Notification.requestPermission();
       setNotificationsEnabled(permission === "granted");
       if (permission === "granted") {
-        toast.success("Notifications enabled!");
+        toast.success();
       }
     }
   };
@@ -201,7 +201,7 @@ function PriceAlerts() {
   const toggleNotifications = () => {
     if (notificationsEnabled) {
       setNotificationsEnabled(false);
-      toast.info("Notifications disabled");
+      toast.info();
     } else {
       requestNotificationPermission();
     }
@@ -211,7 +211,7 @@ function PriceAlerts() {
   const toggleAutoReload = () => {
     setAutoReloadEnabled(!autoReloadEnabled);
     saveSettings();
-    toast.info(`Auto-reload ${!autoReloadEnabled ? "enabled" : "disabled"}`);
+    toast.info();
   };
 
   const addAlert = () => {
