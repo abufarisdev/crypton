@@ -3,10 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const getInitial = () =>
-    document.documentElement.getAttribute("data-theme") ||
-    localStorage.getItem("theme") ||
-    "light";
+  const getInitial = () => "light";
 
   const [theme, setTheme] = useState(getInitial);
 
