@@ -3,7 +3,8 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const getInitial = () => "light";
+  const getInitial = () =>
+    localStorage.getItem("theme") || "light";
 
   const [theme, setTheme] = useState(getInitial);
 
