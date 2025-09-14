@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import { ThemeProvider as AppThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider as AppThemeProvider, useThemeContext } from "./context/ThemeContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Coin from "./pages/Coin";
@@ -10,6 +10,7 @@ import Watchlist from "./pages/Watchlist";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import News from "./pages/News";
+import FloatingClouds from "./components/Common/FloatingClouds";
 
 function App() {
   const theme = createTheme({
@@ -20,12 +21,33 @@ function App() {
     },
   });
 
+  return (
+    <AppThemeProvider>
+      <AppContent theme={theme} />
+    </AppThemeProvider>
+  );
+}
+
+function AppContent({ theme }) {
+  const { theme: currentTheme } = useThemeContext();
 
   return (
     <div className="App">
       <ToastContainer />
-      <AppThemeProvider>
-        <ThemeProvider theme={theme}>
+      
+      {/* Blinking Stars Overlay - Dark Mode Only */}
+      {currentTheme === "dark" && (
+        <div className="stars-container">
+          {Array.from({ length: 30 }, (_, i) => (
+            <div key={i} className="star"></div>
+          ))}
+        </div>
+      )}
+      
+      {/* Floating Clouds - Light Mode Only */}
+      {currentTheme === "light" && <FloatingClouds />}
+      
+      <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -36,8 +58,7 @@ function App() {
             <Route path="/news" element={<News/>} />
           </Routes>
         </BrowserRouter>
-        </ThemeProvider>
-      </AppThemeProvider>
+      </ThemeProvider>
     </div>
   );
 }

@@ -4,9 +4,7 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   const getInitial = () =>
-    document.documentElement.getAttribute("data-theme") ||
-    localStorage.getItem("theme") ||
-    "light";
+    localStorage.getItem("theme") || "light";
 
   const [theme, setTheme] = useState(getInitial);
 
