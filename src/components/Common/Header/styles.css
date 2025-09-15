@@ -54,15 +54,60 @@
     display: block;
   }
 
+  .drawer-component .MuiIconButton-root {
+    padding: 12px;
+  }
+
+  .drawer-component .MuiSvgIcon-root {
+    font-size: 2rem !important;
+    color: var(--white) !important;
+  }
+
   .header {
     padding: 0.5rem 1.5rem;
   }
 
   .drawer-div {
-    width: 40vw;
+    width: 50vw;
+    min-width: 250px;
     background-color: var(--black);
     height: 100vh;
-    padding: 0.5rem 1.5rem;
+    padding: 2rem 1.5rem;
     border-left: 2px solid var(--grey);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .drawer-div .link {
+    font-size: 1.1rem;
+    color: var(--grey);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--grey);
+    text-decoration: none;
+    transition: all 0.3s;
+    text-align: left;
+  }
+
+  .drawer-div .link:hover {
+    color: #f18500;
+    border-bottom: 1px solid #f18500;
+  }
+
+  .drawer-div .MuiSwitch-root {
+    margin-top: 1rem;
+    transform: scale(1.2);
+  }
+
+  .drawer-div .MuiSwitch-track {
+    width: 50px !important;
+    height: 24px !important;
+  }
+
+  .drawer-div .MuiSwitch-thumb {
+    width: 20px !important;
+    height: 20px !important;
   }
 }

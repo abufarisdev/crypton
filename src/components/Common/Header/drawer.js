@@ -48,7 +48,24 @@ export default function TemporaryDrawer() {
           <Link to="/price-alerts" className="link" onClick={() => setOpen(false)}>Price Alerts</Link>
           <Link to="/dashboard" className="link" onClick={() => setOpen(false)}>Dashboard</Link>
 
-          <Switch checked={darkMode} onClick={changeMode} />
+          <Switch 
+            checked={darkMode} 
+            onChange={changeMode}
+            sx={{
+              '& .MuiSwitch-track': {
+                backgroundColor: '#f18500',
+              },
+              '& .MuiSwitch-thumb': {
+                backgroundColor: darkMode ? '#fff' : '#f18500',
+              },
+              '& .Mui-checked .MuiSwitch-thumb': {
+                backgroundColor: '#fff',
+              },
+              '& .Mui-checked + .MuiSwitch-track': {
+                backgroundColor: '#f18500 !important',
+              },
+            }}
+          />
         </div>
       </Drawer>
     </div>

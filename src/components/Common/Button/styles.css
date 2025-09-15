@@ -76,7 +76,32 @@
 
 @media only screen and (max-width: 800px) {
   .btn,
-  .btn-outlined {
+  .btn-outlined,
+  .btn-dashboard {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.8rem;
+    min-width: 120px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .btn,
+  .btn-outlined,
+  .btn-dashboard {
+    font-size: 0.85rem;
+    padding: 0.7rem 2rem;
+    min-width: 140px;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .btn,
+  .btn-outlined,
+  .btn-dashboard {
     font-size: 0.8rem;
+    padding: 0.65rem 1.5rem;
+    min-width: 120px;
   }
 }

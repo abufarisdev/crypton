@@ -151,7 +151,24 @@
 
   .gradient-div {
     margin-top: 3rem;
-      margin-bottom: 0.5rem; /* Reduce space below info-landing */
+    margin-bottom: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dashboard-logo {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    top: 0 !important;
+  }
+
+  .gradient {
+    display: none;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -162,6 +179,47 @@
 
   .iphone {
     left: -30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-flex {
+    padding: 1rem 1.5rem;
+  }
+
+  .heading1,
+  .heading2 {
+    font-size: 1.8rem;
+  }
+
+  .info-text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .btn-flex {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .dashboard-logo {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .heading1,
+  .heading2 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-logo {
+    width: 200px;
+  }
+
+  .gradient-div {
+    margin-top: 2rem;
   }
 }
 
