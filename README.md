@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# 🪙 Crypton
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live Demo](https://crypton-wheat.vercel.app) • Web3 Crypto Tracker App
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🔍 Project Overview
 
-### `npm start`
+Crypton is a clean, intuitive web app for tracking cryptocurrency markets in real time. Instead of switching between multiple sites, users get a single dashboard with live prices, trends, and market data — all with minimal clutter.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+- Real-time price tracking for multiple cryptocurrencies  
+- Live market trends and data (via CoinGecko API)  
+- Clean, user-friendly interface  
+- Fully responsive design for desktop & mobile  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Layer | Tools / Libraries |
+|-------|-------------------|
+| Frontend | React.js, CSS |
+| API / Data | CoinGecko API |
+| Build / Tooling | Vite, npm |
+| Deployment | Vercel |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 📦 Installation & Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# 1. Clone this repo
+git clone https://github.com/abufarisdev/crypton.git
+cd crypton
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 2. Install dependencies
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# 3. Run locally in dev mode
+npm run dev
+# The app should open at http://localhost:5173
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# 4. Build for production
+npm run build
+```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Team Member              | Contribution                                                             |
+| -------------------------|--------------------------------------------------------------------------|
+| **Abu Faris (Lead)**     | Frontend development, React integration, tying together API with UI      |
+| **Irfan Khan**           | UI/UX design, styling with Tailwind, ensuring a clean interface          |
+| **Ashmit Rai**           | API integration & data handling, making sure crypto data flows correctly |
+| **Santosh Kumar**        | Presentation & pitch, testing, and UX feedback                           |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🔮 Future Improvements
 
-### Code Splitting
+Add user authentication & watchlists
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Support for advanced charts & historical data
 
-### Analyzing the Bundle Size
+Performance optimizations for mobile
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project is licensed under the MIT License.
 
-### Advanced Configuration
+🙏 Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks to Team1 Hackathon: Kolkata (13–14 Sept, 2025), the mentors, and everyone who made this possible. Building Crypton in just 36 hours taught us so much about collaboration, rapid prototyping, and the art of learning by building. 🚀
